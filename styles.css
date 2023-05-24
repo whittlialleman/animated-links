@@ -1,0 +1,88 @@
+* {
+    box-sizing: border-box; /* This makes all elements include padding and border are included in the total width and height */
+}
+
+body {
+    background: lightgray;
+    display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+img {
+    width: 750px;
+    height: 500px;
+}
+
+.wrapper {
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+    margin-top: 3%;
+}
+
+.card {
+    background: white;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    transition: 0.4s ease-out;
+    max-width: 750px;
+    max-height: 500px;
+    overflow: hidden;
+    margin-bottom: 50px;
+    &:hover {
+        transform: translateY(20px);
+        &:before {
+            opacity: 1;
+        }
+        .info {
+            opacity: 1;
+            transform: translateY(-250px);
+        }
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        top:0; left:0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(0deg, rgba(0,0,0,0.5) 0%, rgba(144,143,143,0.5) 40%, rgba(235,238,238,0.2) 100%);
+        z-index: 2;
+        transition: 0.5s;
+        opacity: 0;
+    }
+}
+
+.info {
+	position: relative;
+	z-index: 3;
+	color: white;
+	opacity: 0;
+	transition: 0.5s;
+    font-family: sans-serif;
+    > h2 {
+        font-size: 3rem;
+        padding-left: 5%;
+        margin-bottom: 0;
+    }
+    > p {
+        font-size: 1.25rem;
+        padding-left: 5%;
+        margin-top: 8px;
+    }
+    > button {
+        padding: 0.5rem 1rem;
+        background-color: rgb(251, 144, 38);
+        border: none;
+        color: white;
+        font-size: 1.25rem;
+        margin-left: 5%;
+        cursor: pointer;
+        transition: 0.4s ease;
+        &:hover {
+            background-color: rgb(250, 169, 87);
+        }
+    }
+}
